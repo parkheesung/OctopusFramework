@@ -5,3 +5,5 @@
 /.vs/Octopus
 /Basis/bin/Debug/netstandard2.0
 /Basis/obj
+*.nupkg
+/Basis/bin/Release/netstandard2.0
