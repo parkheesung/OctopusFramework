@@ -144,6 +144,46 @@ namespace Octopus.Basis
             return builder.ToString();
         }
 
+        public static string SummaryString(this IList<IStringWrite> list)
+        {
+            StringBuilder builder = new StringBuilder(200);
+            foreach (IStringWrite writer in list)
+            {
+                builder.Append(writer.Write());
+            }
+            return builder.ToString();
+        }
+
+        public static string SummaryString(this ICollection<IStringWrite> list)
+        {
+            StringBuilder builder = new StringBuilder(200);
+            foreach (IStringWrite writer in list)
+            {
+                builder.Append(writer.Write());
+            }
+            return builder.ToString();
+        }
+
+        public static string SummaryString(this IEnumerable<IStringWrite> list)
+        {
+            StringBuilder builder = new StringBuilder(200);
+            foreach (IStringWrite writer in list)
+            {
+                builder.Append(writer.Write());
+            }
+            return builder.ToString();
+        }
+
+        public static string SummaryString(this IStringWrite[] list)
+        {
+            StringBuilder builder = new StringBuilder(200);
+            foreach (IStringWrite writer in list)
+            {
+                builder.Append(writer.Write());
+            }
+            return builder.ToString();
+        }
+
         public static List<T> DataToEntity<T>(this DataTable data) where T : new()
         {
             var result = new List<T>();
