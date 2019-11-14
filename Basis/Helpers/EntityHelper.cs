@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -7,6 +9,11 @@ namespace Octopus.Basis
 {
     public class EntityHelper
     {
+        public static PropertyInfo[] GetProperties<T>()
+        {
+            Type type = typeof(T);
+            return type.GetProperties();
+        }
     }
 
     public static class ExtendEntityHelper
@@ -127,5 +134,78 @@ namespace Octopus.Basis
             return result;
         }
 
+        public static string SummaryString(this List<IStringWrite> list)
+        {
+            StringBuilder builder = new StringBuilder(200);
+            foreach(IStringWrite writer in list)
+            {
+                builder.Append(writer.Write());
+            }
+            return builder.ToString();
+        }
+
+        public static List<T> DataToEntity<T>(this DataTable data) where T : new()
+        {
+            var result = new List<T>();
+            var properties = EntityHelper.GetProperties<T>();
+            var columns = data.Columns.Cast<DataColumn>().ToList();
+            T item;
+            foreach (DataRow row in data.Rows)
+            {
+                item = new T();
+                DataColumn column;
+                foreach (var property in properties)
+                {
+                    try
+                    {
+                        column = columns.Find(x => x.ColumnName == property.Name);
+                        if (column != null && row[property.Name] != null && row[property.Name] != DBNull.Value)
+                        {
+                            property.SetValue(item, row[property.Name], null);
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+        public static List<T> PropertyToEntity<T>(this DataTable data) where T : new()
+        {
+            var result = new List<T>();
+            var properties = EntityHelper.GetProperties<T>();
+            var columns = data.Columns.Cast<DataColumn>().ToList();
+            T item;
+            foreach (var property in properties)
+            {
+                item = new T();
+                DataColumn column = null;
+                foreach (DataRow row in data.Rows)
+                {
+                    try
+                    {
+                        column = columns.Find(x => x.ColumnName == property.Name);
+                        if (column != null && row[property.Name] != null && row[property.Name] != DBNull.Value)
+                        {
+                            property.SetValue(item, row[property.Name], null);
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+                result.Add(item);
+            }
+
+            return result;
+        }
     }
 }
