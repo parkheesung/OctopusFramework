@@ -22,6 +22,10 @@ public class Human : IEntity
     {
     }
 }
+
+//Model Binding
+DataTable dt = { Select your Database Table };
+List&lt;Human&gt; list = dt.DataToEntity&lt;Human&gt;();
 </code></pre>
 
 ### Release
