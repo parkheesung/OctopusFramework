@@ -7,3 +7,6 @@
 /Basis/obj
 *.nupkg
 /Basis/bin/Release/netstandard2.0
+/Crypto/bin/Release/netstandard2.0
+/Crypto/obj
+/Nuget/Crypto/lib/netstandard2.0

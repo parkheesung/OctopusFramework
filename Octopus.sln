@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basis", "Basis\Basis.csproj", "{29678E3B-BA7F-4FEC-87F9-DF34CA413F98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basis", "Basis\Basis.csproj", "{29678E3B-BA7F-4FEC-87F9-DF34CA413F98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto", "Crypto\Crypto.csproj", "{63CECE8E-AD18-4A3B-BEF9-EDC14BA3CA7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{29678E3B-BA7F-4FEC-87F9-DF34CA413F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29678E3B-BA7F-4FEC-87F9-DF34CA413F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29678E3B-BA7F-4FEC-87F9-DF34CA413F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63CECE8E-AD18-4A3B-BEF9-EDC14BA3CA7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63CECE8E-AD18-4A3B-BEF9-EDC14BA3CA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63CECE8E-AD18-4A3B-BEF9-EDC14BA3CA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63CECE8E-AD18-4A3B-BEF9-EDC14BA3CA7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>OctopusFramework.Basis</id>
-    <version>0.1.4</version>
-    <title>OctopusFramework Core Library</title>
+    <id>OctopusFramework.Crypto</id>
+    <version>0.1.0</version>
+    <title>OctopusFramework Crypto Library</title>
     <authors>Parkheesung</authors>
     <owners>Parkheesung</owners>
     <licenseUrl>https://github.com/parkheesung</licenseUrl>
     <projectUrl>https://github.com/parkheesung/OctopusFramework</projectUrl>
     <iconUrl>https://s.gravatar.com/avatar/d1559a7d1431389a32f3ede25571ed2e?s=80</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>C# Library in .Net Standard Library 2.0 by Microsoft</description>
-    <releaseNotes>공개키 방식 암호 CryptoHelper Interface 추가</releaseNotes>
+    <description>C# Crypto Library in .Net Standard Library 2.0 by Microsoft</description>
+    <releaseNotes>First Release</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>OctopusFramework Octopus C# NetStandard</tags>
+    <tags>OctopusFramework Octopus C# NetStandard Crypto AES RSA</tags>
+	<dependencies>
+	<dependency id="OctopusFramework.Basis" version="0.1.4" />
+	</dependencies>
   </metadata>
 </package>
