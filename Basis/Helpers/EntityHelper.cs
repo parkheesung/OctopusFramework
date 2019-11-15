@@ -139,7 +139,7 @@ namespace Octopus.Basis
             StringBuilder builder = new StringBuilder(200);
             foreach(IStringWrite writer in list)
             {
-                builder.Append(writer.Write());
+                builder.AppendLine(writer.Write());
             }
             return builder.ToString();
         }
@@ -149,7 +149,7 @@ namespace Octopus.Basis
             StringBuilder builder = new StringBuilder(200);
             foreach (IStringWrite writer in list)
             {
-                builder.Append(writer.Write());
+                builder.AppendLine(writer.Write());
             }
             return builder.ToString();
         }
@@ -159,7 +159,7 @@ namespace Octopus.Basis
             StringBuilder builder = new StringBuilder(200);
             foreach (IStringWrite writer in list)
             {
-                builder.Append(writer.Write());
+                builder.AppendLine(writer.Write());
             }
             return builder.ToString();
         }
@@ -169,7 +169,7 @@ namespace Octopus.Basis
             StringBuilder builder = new StringBuilder(200);
             foreach (IStringWrite writer in list)
             {
-                builder.Append(writer.Write());
+                builder.AppendLine(writer.Write());
             }
             return builder.ToString();
         }
@@ -179,7 +179,7 @@ namespace Octopus.Basis
             StringBuilder builder = new StringBuilder(200);
             foreach (IStringWrite writer in list)
             {
-                builder.Append(writer.Write());
+                builder.AppendLine(writer.Write());
             }
             return builder.ToString();
         }
