@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Basis\Basis.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="del ..\Nuget\Crypto\lib\netstandard2.0\*.*&#xD;&#xA;copy .\bin\Release\netstandard2.0\Crypto*.* ..\Nuget\Crypto\lib\netstandard2.0\&#xD;&#xA;" />
+  </Target>
+
 </Project>
