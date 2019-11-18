@@ -6,6 +6,6 @@ namespace Octopus.Basis
 {
     public interface IEntity
     {
-        List<EntityObject> GetEntities();
+        List<EntityObject> GetColumns();
     }
 }
