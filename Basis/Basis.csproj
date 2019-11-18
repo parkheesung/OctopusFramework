@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="del ..\Nuget\Basis\lib\netstandard2.0\*.*&#xD;&#xA;copy .\bin\Release\netstandard2.0\*.* ..\Nuget\Basis\lib\netstandard2.0\&#xD;&#xA;" />
+    <Exec Command="del ..\Nuget\Basis\lib\netstandard2.0\*.* -y&#xD;&#xA;copy .\bin\Release\netstandard2.0\*.* ..\Nuget\Basis\lib\netstandard2.0\&#xD;&#xA;" />
   </Target>
 
 </Project>

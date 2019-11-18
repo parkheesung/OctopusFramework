@@ -33,5 +33,17 @@ namespace Octopus.Basis
             Boolean = 40,
             Object = 99
         }
+
+        public enum Method
+        {
+            Select = 1,
+            Insert = 2,
+            Update = 3,
+            Delete = 4,
+            Count = 5,
+            GroupBy = 6,
+            List = 9
+        }
+
     }
 }
