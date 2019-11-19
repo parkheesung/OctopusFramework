@@ -11,8 +11,5 @@ namespace Octopus.Basis
         StringBuilder OrderBy { get; set; }
 
         StringBuilder WhereString { get; set; }
-
-        string toQuery();
-        string toQuery(string appendWhere);
     }
 }
