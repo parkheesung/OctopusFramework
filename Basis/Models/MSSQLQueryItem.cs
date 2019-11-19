@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Octopus.Basis;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
-namespace Octopus.Basis
+namespace Octopus.Database
 {
     public class MSSQLQueryItem : IStringWrite
     {
@@ -71,7 +73,8 @@ namespace Octopus.Basis
                     builder.Append($" values ({this.Content})");
                     break;
                 case Entities.Method.List:
-                    builder.Append($"Select Top {this.TopCount} A.* From (Select Top ({this.TopCount} - {this.PageIndex}) ROW_NUMBER() OVER (Order by {this.TargetColumn}) as seq, ");
+                    string orderString = (String.IsNullOrWhiteSpace(this.OrderByString)) ? this.TargetColumn : this.OrderByString;
+                    builder.Append($"Select Top {this.TopCount} A.* From (Select Top ({this.TopCount} * {this.PageIndex}) ROW_NUMBER() OVER (Order by {orderString}) as rowNumber, ");
                     if (!String.IsNullOrWhiteSpace(this.Columns))
                     {
                         builder.Append($" {this.Columns} From ");
@@ -89,7 +92,7 @@ namespace Octopus.Basis
                     {
                         builder.Append($" order by {this.OrderByString}");
                     }
-                    builder.Append($") as A where seq > (({this.PageIndex} - 1) * {this.TopCount})");
+                    builder.Append($") as A where rowNumber > (({this.PageIndex} - 1) * {this.TopCount})");
                     break;
                 case Entities.Method.Select:
                     builder.Append("Select ");
@@ -141,8 +144,10 @@ namespace Octopus.Basis
                     break;
             }
 
-            return builder.ToString();
+            return QueryHelper.toQueryTrim(builder.ToString());
         }
+
+
 
     }
 }

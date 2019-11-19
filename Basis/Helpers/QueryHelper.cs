@@ -1,12 +1,21 @@
-﻿using System;
+﻿using Octopus.Basis;
+using System;
 using System.Text;
+using System.Text.RegularExpressions;
 
-namespace Octopus.Basis
+namespace Octopus.Database
 {
     public class QueryHelper
     {
         private static readonly Lazy<MSSQLQuery> mssql = new Lazy<MSSQLQuery>(() => new MSSQLQuery());
         public static MSSQLQuery MSSQL { get { return mssql.Value; } }
+
+
+        public static string toQueryTrim(string query)
+        {
+            Regex reg = new Regex("[\\s\\t\\n\\r]{2,100}");
+            return reg.Replace(query, " ").Trim();
+        }
     }
 
     public class MSSQLQuery
@@ -96,7 +105,7 @@ namespace Octopus.Basis
             return result;
         }
 
-        public MSSQLQueryItem toList<T>(T item, int CurPage, int TopCount = 10, string whereStr = "") where T : ITableBinder
+        public MSSQLQueryItem toList<T>(T item, int CurPage, string whereStr, int TopCount = 10) where T : ITableBinder
         {
             var result = new MSSQLQueryItem();
             result.TableName = item.TableName;
@@ -110,7 +119,7 @@ namespace Octopus.Basis
             return result;
         }
 
-        public MSSQLQueryItem toList<T>(T item, int CurPage, int TopCount = 10, string whereStr = "", string order = "") where T : ITableBinder
+        public MSSQLQueryItem toList<T>(T item, int CurPage, string whereStr, string order, int TopCount = 10) where T : ITableBinder
         {
             var result = new MSSQLQueryItem();
             result.TableName = item.TableName;
@@ -196,7 +205,8 @@ namespace Octopus.Basis
             builder.AppendLine("BEGIN CATCH");
             builder.AppendLine(failQuery);
             builder.AppendLine("END CATCH");
-            return builder.ToString();
+            return builder.ToString().Trim();
         }
+
     }
 }

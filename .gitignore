@@ -10,3 +10,6 @@
 /Crypto/bin/Release/netstandard2.0
 /Crypto/obj
 /Nuget/Crypto/lib/netstandard2.0
+/Octopus.Tests/bin/Release
+/Octopus.Tests/obj/Release
+/packages

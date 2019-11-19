@@ -1,4 +1,7 @@
-﻿namespace Octopus.Basis.MSSQL
+﻿using Octopus.Basis;
+using Octopus.Database;
+
+namespace Octopus.Database.MSSQL
 {
     public static class ExtendEntityQueryHelper
     {
@@ -37,14 +40,14 @@
             return QueryHelper.MSSQL.toList<T>(item, CurPage, TopCount);
         }
 
-        public static MSSQLQueryItem toList<T>(this T item, int CurPage, int TopCount = 10, string whereStr = "") where T : ITableBinder
+        public static MSSQLQueryItem toList<T>(this T item, int CurPage, string whereStr, int TopCount = 10) where T : ITableBinder
         {
-            return QueryHelper.MSSQL.toList<T>(item, CurPage, TopCount, whereStr);
+            return QueryHelper.MSSQL.toList<T>(item, CurPage, whereStr, TopCount);
         }
 
-        public static MSSQLQueryItem toList<T>(this T item, int CurPage, int TopCount = 10, string whereStr = "", string order = "") where T : ITableBinder
+        public static MSSQLQueryItem toList<T>(this T item, int CurPage, string whereStr, string order, int TopCount = 10) where T : ITableBinder
         {
-            return QueryHelper.MSSQL.toList<T>(item, CurPage, TopCount, whereStr, order);
+            return QueryHelper.MSSQL.toList<T>(item, CurPage, whereStr, order, TopCount);
         }
 
         public static MSSQLQueryItem toCount<T>(this T item) where T : ITableBinder
