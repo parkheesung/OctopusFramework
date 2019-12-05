@@ -13,3 +13,5 @@
 /Octopus.Tests/bin/Release
 /Octopus.Tests/obj/Release
 /packages
+/Crypto/bin/Debug/netstandard2.0
+/Octopus.Tests/obj/Debug

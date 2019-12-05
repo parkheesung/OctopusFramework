@@ -247,5 +247,41 @@ namespace Octopus.Basis
 
             return result;
         }
+
+        public static object FindNameGetValue<T>(this T entity, string physicalName) where T : IEntity
+        {
+            object result = null;
+
+            Type type = entity.GetType();
+            var properties = type.GetProperties();
+            EntityObject temp = null;
+
+            foreach (PropertyInfo property in properties)
+            {
+                temp = property.GetEntity();
+                if (temp != null && temp.PhysicalName.Equals(physicalName, StringComparison.OrdinalIgnoreCase))
+                {
+                    result = property.GetValue(entity);
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        public static Dictionary<string, string> ToDictionaryString<T>(this List<T> list, string keyColumn, string valueColumn) where T : IEntity
+        {
+            var result = new Dictionary<string, string>();
+
+            if (list != null && list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    result.Add(Convert.ToString(item.FindNameGetValue(keyColumn)), Convert.ToString(item.FindNameGetValue(valueColumn)));
+                }
+            }
+
+            return result;
+        }
     }
 }

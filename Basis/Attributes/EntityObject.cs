@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Data;
 
 namespace Octopus.Basis
 {
@@ -12,6 +10,8 @@ namespace Octopus.Basis
 
         public Entities.EntityType Type { get; set; }
 
+        public SqlDbType DbType { get; set; }
+
         public EntityObject()
         {
         }
@@ -21,17 +21,11 @@ namespace Octopus.Basis
     {
         public enum EntityType
         {
-            String = 10,
-            Code = 11,
-            Numeric = 12,
-            Date = 13,
-            Time = 14,
-            Number = 20,
-            Double = 21,
-            Identity = 22,
-            DateTime = 30,
-            Boolean = 40,
-            Object = 99
+            None = 0,
+            Key = 1,
+            ReadOnly = 2,
+            Identity = 3,
+            Hide = 4
         }
 
         public enum Method

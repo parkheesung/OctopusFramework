@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>OctopusFramework.Basis</id>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <title>OctopusFramework Core Library</title>
     <authors>Parkheesung</authors>
     <owners>Parkheesung</owners>
@@ -11,7 +11,7 @@
     <iconUrl>https://s.gravatar.com/avatar/d1559a7d1431389a32f3ede25571ed2e?s=80</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>C# Library in .Net Standard Library 2.0 by Microsoft</description>
-    <releaseNotes>DateTimeHelper added</releaseNotes>
+    <releaseNotes>FileHelper added</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>OctopusFramework Octopus C# NetStandard</tags>
   </metadata>

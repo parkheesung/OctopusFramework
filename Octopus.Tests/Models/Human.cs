@@ -1,18 +1,19 @@
 ﻿using Octopus.Basis;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace Octopus.Tests
 {
     public class Human : ITableBinder
     {
-        [Entity("이름", "Name", Entities.EntityType.String, 30)]
+        [Entity("이름", "Name", SqlDbType.NVarChar, 30)]
         public string Name { get; set; }
 
-        [Entity("성별", "Gender", Entities.EntityType.String, 10)]
+        [Entity("성별", "Gender", SqlDbType.NVarChar, 10)]
         public string Gender { get; set; }
 
-        [Entity("나이", "Age", Entities.EntityType.Number)]
+        [Entity("나이", "Age", SqlDbType.Int)]
         public int Age { get; set; }
         public string TableName { get; set; } = "human";
         public string TargetColumn { get; set; } = "idx";
